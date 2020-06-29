@@ -150,18 +150,6 @@ W = 0.95311, p-value = 0.2549
 data:  seconddata$Raw_int_density
 W = 0.96237, p-value = 0.4177
 
-> shapiro.test(seconddata$Objects detected)
-Error: unexpected symbol in "shapiro.test(seconddata$Objects detected"
-> 
-> shapiro.test(seconddata$Objectsdetected)
-Error in shapiro.test(seconddata$Objectsdetected) : 
-  is.numeric(x) is not TRUE
-In addition: Warning message:
-Unknown or uninitialised column: `Objectsdetected`. 
-> shapiro.test(seconddata$16-bit_auto_threshold)
-Error: unexpected numeric constant in "shapiro.test(seconddata$16"
-> secondset <- read_csv("/Users/tessforman/secondset.csv")
-Error: '/Users/tessforman/secondset.csv' does not exist.
 > secondset <- read_csv("/Users/tessforman/secondset.csv")
 Parsed with column specification:
 cols(
@@ -439,39 +427,9 @@ W = 0.93979, p-value = 0.1204
 data:  secondset$Auto_threshold_sixteen
 W = 0.93752, p-value = 0.1436
 
-> qqnorm(firstset$Average_pixel_value)
-> qqplot(firstset$Average_pixel_value)
-Error in sort(y) : argument "y" is missing, with no default
-> qqPlot(firstset$Average_pixel_value)
-Error in qqPlot(firstset$Average_pixel_value) : 
-  could not find function "qqPlot"
-> hist(v,main,xlab,xlim,ylim,breaks,col,border)
-Error in hist(v, main, xlab, xlim, ylim, breaks, col, border) : 
-  object 'v' not found
-> ggplot(data = <DATA>) + 
-Error: unexpected '<' in "ggplot(data = <"
->   <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
-Error: unexpected '<' in "  <"
-> ggplot(data = <DATA>) + 
-Error: unexpected '<' in "ggplot(data = <"
->   GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
-Error: unexpected '<' in "  GEOM_FUNCTION>(mapping = aes(<"
-> ggplot(data = <DATA>) + 
-Error: unexpected '<' in "ggplot(data = <"
->   <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
-Error: unexpected '<' in "  <"
-> ggplot(data = mpg) + 
-+   geom_point(mapping = aes(x = displ, y = hwy, color = class))
-sd
-> \
-Error: unexpected input in "\"
 > sd(firstset$Average_pixel_value)
 [1] 506.4508
-> sd(firstset)
-Error in is.data.frame(x) : 
-  'list' object cannot be coerced to type 'double'
-> sd(Average_pixel_value)
-Error in is.data.frame(x) : object 'Average_pixel_value' not found
+
 > sd(firstset$Deviation)
 [1] 879.5109
 > sd(firstset$Skew)
@@ -658,9 +616,6 @@ Error: unexpected input in "hist(firstset$Deviation)\"
 > hist(firstset$Auto_threshold_sixteen )
 > hist(firstset$Auto_threshold_eight )
 > hist(secondset$Deviation)
-> > hist(secondset$Skew)
-Error: unexpected '>' in ">"
-> 
 >  hist(secondset$Deviation)
 >  hist(secondset$Skew)
 > hist(secondset $Average_pixel_value)
@@ -685,9 +640,7 @@ Error: unexpected '>' in ">"
 > 
 > hist(thirdset $Average_pixel_value)
 > hist(thirdset $Deviation)
-> hist(thirdset $Skew)
-> > 
-Error: unexpected '>' in ">"
+
 >  hist(thirdset $Skew)
 > 
 > 
@@ -702,39 +655,4 @@ Error: unexpected '>' in ">"
 > hist(thirdset $Auto_threshold_sixteen)
 > 
 > hist(thirdset $Auto_threshold_eight)
-> 
-> View(thirdset $Auto_threshold_eight)
-Error in check_for_XQuartz() : 
-  X11 library is missing: install XQuartz from xquartz.macosforge.org
-> normalize(thirdset $Integrated_density, method = "standardize", range = c(0, 1), margin = 1L, on.constant = "quiet")
-Error in normalize(thirdset$Integrated_density, method = "standardize",  : 
-  could not find function "normalize"
-> library(BBmisc)
-Error in library(BBmisc) : there is no package called ‘BBmisc’
-> firstset_norm <- as.data.frame(apply(firstset[, 1:4], 2, function(x) (x - min(x))/(max(x)-min(x))))
-> firstset_norm$Average_pixel_value <- firstset$Average_pixel_value
-> str(firstset_norm)
-'data.frame':	27 obs. of  4 variables:
- $ Average_pixel_value: num  711 1371 2218 621 1210 ...
- $ Deviation          : num  0.1457 0.581 1 0.0842 0.3974 ...
- $ Skew               : num  0.744 0.274 0 0.84 0.402 ...
- $ Integrated_density : num  0.1117 0.5009 1 0.0591 0.4058 ...
-> summary(firstset_norm)
- Average_pixel_value   Deviation           Skew        Integrated_density
- Min.   : 521        Min.   :0.0000   Min.   :0.0000   Min.   :0.0000    
- 1st Qu.:1038        1st Qu.:0.3606   1st Qu.:0.1763   1st Qu.:0.3044    
- Median :1390        Median :0.5635   Median :0.2783   Median :0.5120    
- Mean   :1395        Mean   :0.5182   Mean   :0.3485   Mean   :0.5152    
- 3rd Qu.:1699        3rd Qu.:0.7028   3rd Qu.:0.4573   3rd Qu.:0.6943    
- Max.   :2218        Max.   :1.0000   Max.   :1.0000   Max.   :1.0000    
-> hist(firstset_norm)
-Error in hist.default(firstset_norm) : 'x' must be numeric
-> hist(firstset_norm$Average_pixel_value)
-> firstset_norm <- as.data.frame(apply(firstset[, 1:4], 2, function(x) (x - min(x))/(max(x)-min(x))))
-> normalize(firstset, method = "standardize", range = c(0, 1), margin = 1L, on.constant = "quiet")
-Error in normalize(firstset, method = "standardize", range = c(0, 1),  : 
-  could not find function "normalize"
-2020-06-25 11:31:23.827 R[22525:28402591] [QL] Can't get plugin bundle info at file:///Users/tessforman/Library/Application%20Support/Autodesk/webdeploy/production/d70fc034bdeb523b5467a17508052a9fa72e449d/Autodesk%20Fusion%20360.app/Contents/Library/QuickLook/NQLGenerator.qlgenerator
-2020-06-28 23:44:28.477 R[22525:30629207] [QL] Can't get plugin bundle info at file:///Users/tessforman/Library/Application%20Support/Autodesk/webdeploy/production/d70fc034bdeb523b5467a17508052a9fa72e449d/Autodesk%20Fusion%20360.app/Contents/Library/QuickLook/NQLGenerator.qlgenerator
-2020-06-29 11:52:16.441 R[22525:31140727] [QL] Can't get plugin bundle info at file:///Users/tessforman/Library/Application%20Support/Autodesk/webdeploy/production/d70fc034bdeb523b5467a17508052a9fa72e449d/Autodesk%20Fusion%20360.app/Contents/Library/QuickLook/NQLGenerator.qlgenerator
 > 
