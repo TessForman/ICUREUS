@@ -1,0 +1,740 @@
+
+R version 4.0.1 (2020-06-06) -- "See Things Now"
+Copyright (C) 2020 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin17.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[R.app GUI 1.72 (7845) x86_64-apple-darwin17.0]
+
+[History restored from /Users/tessforman/.Rapp.history]
+
+objc[22525]: Class FIFinderSyncExtensionHost is implemented in both /System/Library/PrivateFrameworks/FinderKit.framework/Versions/A/FinderKit (0x7fffaaeefcd0) and /System/Library/PrivateFrameworks/FileProvider.framework/OverrideBundles/FinderSyncCollaborationFileProviderOverride.bundle/Contents/MacOS/FinderSyncCollaborationFileProviderOverride (0x10b75fcd8). One of the two will be used. Which one is undefined.
+> library(tidyverse)
+── Attaching packages ───────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──
+✔ ggplot2 3.3.2     ✔ purrr   0.3.4
+✔ tibble  3.0.1     ✔ dplyr   1.0.0
+✔ tidyr   1.1.0     ✔ stringr 1.4.0
+✔ readr   1.3.1     ✔ forcats 0.5.0
+── Conflicts ──────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+> firstdata <- read_csv("firstdata")
+Error: 'firstdata' does not exist in current working directory ('/Users/tessforman').
+> firstdata <- read_csv("/Users/tessforman/firstdata.csv")
+Parsed with column specification:
+cols(
+  `710.528` = col_double(),
+  `6303.589` = col_double(),
+  `9.549` = col_double(),
+  `186260613` = col_double(),
+  `91.88` = col_double(),
+  `1.835` = col_double(),
+  `186260613_1` = col_double(),
+  `57` = col_double(),
+  `26214` = col_double(),
+  `102` = col_double()
+)
+Warning message:
+Duplicated column names deduplicated: '186260613' => '186260613_1' [7] 
+> set.seed(1234)
+> dplyr::sample_n(firstdata, 10)
+# A tibble: 10 x 10
+   `710.528` `6303.589` `9.549` `186260613` `91.88` `1.835` `186260613_1`  `57` `26214` `102`
+       <dbl>      <dbl>   <dbl>       <dbl>   <dbl>   <dbl>         <dbl> <dbl>   <dbl> <dbl>
+ 1     1393.      7691.    6.76   365114034    48.0    6.88     365114034   196   21331  99.4
+ 2     1590.      8041.    6.25   416774805    41.3    8.12     416774805   132   22873  77.3
+ 3      770.      6404.    9.20   201879559    86.1    2.02     201879559   168   25443  83.3
+ 4     1897.      8353.    5.75   497375044    35.5   10.8      497375044    85   22359  87.3
+ 5     1054.      7375.    7.61   276343591    58.6    3.44     276343591     3   25443  92.4
+ 6     1181.      7073.    7.66   309599768    61.9    6.96     309599768   136   22102 130. 
+ 7     1105.      7200.    7.62   289739779    60.1    4.23     289739779   281   24415  86.3
+ 8     1765.      8265.    6.04   462762988    38.6   11.8      462762988   100   22873  99.4
+ 9     1021.      6962.    8.00   267637230    66.1    4.03     267637230   108   24415  98.4
+10     1210.      7139.    7.5    317076679    59.4    6.86     317076679   131   21331 130. 
+> seconddata <- read_csv("/Users/tessforman/seconddata.csv")
+Error: '/Users/tessforman/seconddata.csv' does not exist.
+> seconddata <- read_csv("/Users/tessforman/seconddata.csv")
+Parsed with column specification:
+cols(
+  Average_pixel_value = col_double(),
+  Deviation = col_double(),
+  Skew = col_double(),
+  Integrated_density = col_double(),
+  Kurtosis = col_double(),
+  Area_fraction = col_double(),
+  Raw_int_density = col_double(),
+  `Objects detected` = col_double(),
+  `16-bit_auto_threshold` = col_double(),
+  `8-bit_auto_threshold` = col_double()
+)
+> set.seed(1234)
+> dplyr::sample_n(my_data, 10)
+Error in dplyr::sample_n(my_data, 10) : object 'my_data' not found
+> set.seed(1234)
+> dplyr::sample_n(seconddata, 10)
+# A tibble: 10 x 10
+   Average_pixel_v… Deviation  Skew Integrated_dens… Kurtosis Area_fraction Raw_int_density
+              <dbl>     <dbl> <dbl>            <dbl>    <dbl>         <dbl>           <dbl>
+ 1            1054.     7375.  7.61        276343591     58.6         3.44        276343591
+ 2             940.     6802.  8.34        246473240     71.5         3.28        246473240
+ 3            2081.     8481.  5.55        545509392     33.3        18.1         545509392
+ 4            1210.     7139.  7.5         317076679     59.4         6.86        317076679
+ 5            1253.     7349.  7.27        328522807     55.4         7.22        328522807
+ 6            1567.     8014.  6.34        410678048     42.3         8.39        410678048
+ 7             521.     5820. 11.1         136574940    121.          0.795       136574940
+ 8            2180.     8873.  5.21        571451437     29.1        12.5         571451437
+ 9             770.     6404.  9.20        201879559     86.1         2.02        201879559
+10            1021.     6962.  8.00        267637230     66.1         4.03        267637230
+# … with 3 more variables: `Objects detected` <dbl>, `16-bit_auto_threshold` <dbl>,
+#   `8-bit_auto_threshold` <dbl>
+> shapiro.test(seconddata$Average_pixel_value)
+
+	Shapiro-Wilk normality test
+
+data:  seconddata$Average_pixel_value
+W = 0.96237, p-value = 0.4177
+
+> shapiro.test(seconddata$Deviation)
+
+	Shapiro-Wilk normality test
+
+data:  seconddata$Deviation
+W = 0.97635, p-value = 0.7724
+
+> shapiro.test(seconddata$Skew)
+
+	Shapiro-Wilk normality test
+
+data:  seconddata$Skew
+W = 0.92865, p-value = 0.06403
+
+> shapiro.test(seconddata$Integrated_density)
+
+	Shapiro-Wilk normality test
+
+data:  seconddata$Integrated_density
+W = 0.96237, p-value = 0.4177
+
+> 
+> shapiro.test(seconddata$Kurtosis)
+
+	Shapiro-Wilk normality test
+
+data:  seconddata$Kurtosis
+W = 0.8919, p-value = 0.008773
+
+> shapiro.test(seconddata$Area_fraction)
+
+	Shapiro-Wilk normality test
+
+data:  seconddata$Area_fraction
+W = 0.95311, p-value = 0.2549
+
+> shapiro.test(seconddata$Raw_int_density)
+
+	Shapiro-Wilk normality test
+
+data:  seconddata$Raw_int_density
+W = 0.96237, p-value = 0.4177
+
+> shapiro.test(seconddata$Objects detected)
+Error: unexpected symbol in "shapiro.test(seconddata$Objects detected"
+> 
+> shapiro.test(seconddata$Objectsdetected)
+Error in shapiro.test(seconddata$Objectsdetected) : 
+  is.numeric(x) is not TRUE
+In addition: Warning message:
+Unknown or uninitialised column: `Objectsdetected`. 
+> shapiro.test(seconddata$16-bit_auto_threshold)
+Error: unexpected numeric constant in "shapiro.test(seconddata$16"
+> secondset <- read_csv("/Users/tessforman/secondset.csv")
+Error: '/Users/tessforman/secondset.csv' does not exist.
+> secondset <- read_csv("/Users/tessforman/secondset.csv")
+Parsed with column specification:
+cols(
+  Average_pixel_value = col_double(),
+  Deviation = col_double(),
+  Skew = col_double(),
+  Integrated_density = col_double(),
+  Kurtosis = col_double(),
+  Area_fraction = col_double(),
+  Raw_int_density = col_double(),
+  Objects_detected = col_double(),
+  `16-bit_auto_threshold` = col_double(),
+  `8-bit_auto_threshold` = col_double()
+)
+> set.seed(1234)
+> > dplyr::sample_n(secondset, 10)
+Error: unexpected '>' in ">"
+> set.seed(1234)dplyr::sample_n(secondset, 10)
+Error: unexpected symbol in "set.seed(1234)dplyr"
+> set.seed(1234)dplyr::sample_n(secondset, 10)
+Error: unexpected symbol in "set.seed(1234)dplyr"
+> set.seed(1234)
+> dplyr::sample_n(secondset, 10)
+# A tibble: 10 x 10
+   Average_pixel_v… Deviation  Skew Integrated_dens… Kurtosis Area_fraction Raw_int_density
+              <dbl>     <dbl> <dbl>            <dbl>    <dbl>         <dbl>           <dbl>
+ 1            1961.     8485.  5.62        513982688     33.8         11.9        513982688
+ 2            1178.     7265.  7.44        308694969     57.6          6.00       308694969
+ 3            2470.     9155.  4.88        647481616     25.8         16.0        647481616
+ 4            2454.     9137.  4.89        643326136     25.8         15.5        643326136
+ 5            2274.     9049.  5.17        596114272     28.3         14.8        596114272
+ 6            1521.     7719.  6.58        398846388     46.2          9.18       398846388
+ 7            1334.     7494.  7.01        349592545     51.7          7.44       349592545
+ 8            2801.     9417.  4.53        734365375     22.4         19.2        734365375
+ 9            1794.     8217.  5.94        470240233     37.8         11.7        470240233
+10            1871.     8393.  5.74        490472888     35.2         10.9        490472888
+# … with 3 more variables: Objects_detected <dbl>, `16-bit_auto_threshold` <dbl>,
+#   `8-bit_auto_threshold` <dbl>
+> shapiro.test(secondset$Average_pixel_value)
+
+	Shapiro-Wilk normality test
+
+data:  secondset$Average_pixel_value
+W = 0.96847, p-value = 0.6294
+
+> shapiro.test(secondset$Deviation)
+
+	Shapiro-Wilk normality test
+
+data:  secondset$Deviation
+W = 0.97088, p-value = 0.6887
+
+> shapiro.test(secondset$Skew)
+
+	Shapiro-Wilk normality test
+
+data:  secondset$Skew
+W = 0.97404, p-value = 0.7663
+
+> 
+> shapiro.test(secondset$Integrated_density)
+
+	Shapiro-Wilk normality test
+
+data:  secondset$Integrated_density
+W = 0.96847, p-value = 0.6294
+
+> shapiro.test(secondset$Kurtosis)
+
+	Shapiro-Wilk normality test
+
+data:  secondset$Kurtosis
+W = 0.95921, p-value = 0.4227
+
+> shapiro.test(secondset$Area_fraction)
+
+	Shapiro-Wilk normality test
+
+data:  secondset$Area_fraction
+W = 0.9585, p-value = 0.409
+
+> shapiro.test(secondset$Raw_int_density)
+
+	Shapiro-Wilk normality test
+
+data:  secondset$Raw_int_density
+W = 0.96847, p-value = 0.6294
+
+> 
+> shapiro.test(secondset$Objects_detected)
+
+	Shapiro-Wilk normality test
+
+data:  secondset$Objects_detected
+W = 0.91949, p-value = 0.0569
+
+> 
+> shapiro.test(secondset$16-bit_auto_threshold)
+Error: unexpected numeric constant in "shapiro.test(secondset$16"
+> thirdset <- read_csv("/Users/tessforman/thirdset.csv")
+Parsed with column specification:
+cols(
+  Average_pixel_value = col_double(),
+  Deviation = col_double(),
+  Skew = col_double(),
+  Integrated_density = col_double(),
+  Kurtosis = col_double(),
+  Area_fraction = col_double(),
+  Raw_int_density = col_double(),
+  Objects_detected = col_double(),
+  Auto_threshold_sixteen = col_double(),
+  Auto_threshold_eight = col_double()
+)
+> shapiro.test(thirdset$Average_pixel_value)
+
+	Shapiro-Wilk normality test
+
+data:  thirdset$Average_pixel_value
+W = 0.54361, p-value = 2.294e-08
+
+> 
+> shapiro.test(thirdset$Deviation)
+
+	Shapiro-Wilk normality test
+
+data:  thirdset$Deviation
+W = 0.97409, p-value = 0.6744
+
+> shapiro.test(thirdset$Skew)
+
+	Shapiro-Wilk normality test
+
+data:  thirdset$Skew
+W = 0.92943, p-value = 0.05316
+
+> shapiro.test(thirdset$Integrated_density)
+
+	Shapiro-Wilk normality test
+
+data:  thirdset$Integrated_density
+W = 0.23773, p-value = 3.4e-11
+
+> shapiro.test(thirdset$Kurtosis)
+
+	Shapiro-Wilk normality test
+
+data:  thirdset$Kurtosis
+W = 0.9512, p-value = 0.1966
+
+> 
+> shapiro.test(thirdset$Area_fraction)
+
+	Shapiro-Wilk normality test
+
+data:  thirdset$Area_fraction
+W = 0.98139, p-value = 0.872
+
+> 
+> shapiro.test(thirdset$Raw_int_density)
+
+	Shapiro-Wilk normality test
+
+data:  thirdset$Raw_int_density
+W = 0.23773, p-value = 3.4e-11
+
+> 
+> shapiro.test(thirdset$Objects_detected)
+
+	Shapiro-Wilk normality test
+
+data:  thirdset$Objects_detected
+W = 0.3079, p-value = 1.26e-10
+
+> shapiro.test(thirdset$Auto_threshold_sixteen)
+
+	Shapiro-Wilk normality test
+
+data:  thirdset$Auto_threshold_sixteen
+W = 0.4362, p-value = 1.788e-09
+
+> 
+> shapiro.test(thirdset$Auto_threshold_eight)
+
+	Shapiro-Wilk normality test
+
+data:  thirdset$Auto_threshold_eight
+W = 0.70843, p-value = 2.786e-06
+
+> 2.294es
+Error: unexpected input in "2.294es"
+> shapiro.test(secondset$Auto_threshold_eight)
+Error in shapiro.test(secondset$Auto_threshold_eight) : 
+  is.numeric(x) is not TRUE
+In addition: Warning message:
+Unknown or uninitialised column: `Auto_threshold_eight`. 
+> 
+> shapiro.test(secondset$Auto_threshold_eight)
+Error in shapiro.test(secondset$Auto_threshold_eight) : 
+  is.numeric(x) is not TRUE
+In addition: Warning message:
+Unknown or uninitialised column: `Auto_threshold_eight`. 
+> 
+> secondset <- read_csv("/Users/tessforman/secondset.csv")
+Parsed with column specification:
+cols(
+  Average_pixel_value = col_double(),
+  Deviation = col_double(),
+  Skew = col_double(),
+  Integrated_density = col_double(),
+  Kurtosis = col_double(),
+  Area_fraction = col_double(),
+  Raw_int_density = col_double(),
+  Objects_detected = col_double(),
+  Auto_threshold_sixteen = col_double(),
+  Auto_threshold_eight = col_double()
+)
+> shapiro.test(secondset$Auto_threshold_eight)
+
+	Shapiro-Wilk normality test
+
+data:  secondset$Auto_threshold_eight
+W = 0.8042, p-value = 0.0003453
+
+> shapiro.test(secondset$Auto_threshold_sixteen)
+
+	Shapiro-Wilk normality test
+
+data:  secondset$Auto_threshold_sixteen
+W = 0.93752, p-value = 0.1436
+
+> firstset <- read_csv("/Users/tessforman/firstset.csv")
+Parsed with column specification:
+cols(
+  Average_pixel_value = col_double(),
+  Deviation = col_double(),
+  Skew = col_double(),
+  Integrated_density = col_double(),
+  Kurtosis = col_double(),
+  Area_fraction = col_double(),
+  Raw_int_density = col_double(),
+  Objects_detected = col_double(),
+  Auto_threshold_sixteen = col_double(),
+  Auto_threshold_eight = col_double()
+)
+> 
+> shapiro.test(firstset$Auto_threshold_sixteen)
+
+	Shapiro-Wilk normality test
+
+data:  firstset$Auto_threshold_sixteen
+W = 0.82747, p-value = 0.0004258
+
+> 
+> shapiro.test(firstset$Auto_threshold_eight)
+
+	Shapiro-Wilk normality test
+
+data:  firstset$Auto_threshold_eight
+W = 0.82626, p-value = 0.0004044
+
+> 
+> shapiro.test(firstset$Objects_detected)
+
+	Shapiro-Wilk normality test
+
+data:  firstset$Objects_detected
+W = 0.93979, p-value = 0.1204
+
+> 
+> 
+> shapiro.test(secondset$Auto_threshold_sixteen)
+
+	Shapiro-Wilk normality test
+
+data:  secondset$Auto_threshold_sixteen
+W = 0.93752, p-value = 0.1436
+
+> qqnorm(firstset$Average_pixel_value)
+> qqplot(firstset$Average_pixel_value)
+Error in sort(y) : argument "y" is missing, with no default
+> qqPlot(firstset$Average_pixel_value)
+Error in qqPlot(firstset$Average_pixel_value) : 
+  could not find function "qqPlot"
+> hist(v,main,xlab,xlim,ylim,breaks,col,border)
+Error in hist(v, main, xlab, xlim, ylim, breaks, col, border) : 
+  object 'v' not found
+> ggplot(data = <DATA>) + 
+Error: unexpected '<' in "ggplot(data = <"
+>   <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
+Error: unexpected '<' in "  <"
+> ggplot(data = <DATA>) + 
+Error: unexpected '<' in "ggplot(data = <"
+>   GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
+Error: unexpected '<' in "  GEOM_FUNCTION>(mapping = aes(<"
+> ggplot(data = <DATA>) + 
+Error: unexpected '<' in "ggplot(data = <"
+>   <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
+Error: unexpected '<' in "  <"
+> ggplot(data = mpg) + 
++   geom_point(mapping = aes(x = displ, y = hwy, color = class))
+sd
+> \
+Error: unexpected input in "\"
+> sd(firstset$Average_pixel_value)
+[1] 506.4508
+> sd(firstset)
+Error in is.data.frame(x) : 
+  'list' object cannot be coerced to type 'double'
+> sd(Average_pixel_value)
+Error in is.data.frame(x) : object 'Average_pixel_value' not found
+> sd(firstset$Deviation)
+[1] 879.5109
+> sd(firstset$Skew)
+[1] 1.590322
+> 
+> sd(firstset$Integrated_density)
+[1] 132763039
+> 
+> sd(firstset$Kurtosis)
+[1] 24.16563
+> sd(firstset$Area_fraction)
+[1] 4.717017
+> 
+> > 
+Error: unexpected '>' in ">"
+> sd(firstset$Area_fraction)
+[1] 4.717017
+> sd(firstset$Raw_int_density)
+[1] 132763039
+> sd(firstset$Objects_detected)
+[1] 74.45244
+> sd(firstset$Auto_threshold_sixteen)
+[1] 3354.154
+> sd(firstset$Auto_threshold_eight)
+[1] 13.08999
+> 
+> sd(firstset$Average_pixel_value)
+[1] 506.4508
+> 
+> mean(firstset$Average_pixel_value)
+[1] 1395.249
+> 
+> mean(firstset$Deviation)
+[1] 7540.399
+> 
+> mean(firstset$Skew)
+[1] 7.179185
+> mean(firstset$Integrated_density)
+[1] 365756170
+> mean(firstset$Kurtosis)
+[1] 55.97404
+> 
+> mean(firstset$Area_fraction)
+[1] 7.668481
+> 
+> mean(firstset$Raw_int_density )
+[1] 365756170
+> 
+> mean(firstset$Objects_detected )
+[1] 133.3704
+> mean(firstset$Auto_threshold_sixteen )
+[1] 23501.22
+> 
+> mean(firstset$Auto_threshold_eight )
+[1] 91.78689
+> mean(secondset$Average_pixel_value)
+[1] 1936.694
+> 
+>  mean(secondset$Deviation)
+[1] 8414.22
+> 
+> mean(secondset$Skew)
+[1] 5.788875
+> 
+> mean(secondset$Integrated_density)
+[1] 507692614
+> mean(secondset$Kurtosis)
+[1] 36.32288
+> 
+> mean(secondset$Area_fraction)
+[1] 11.93021
+> 
+> mean(secondset$Raw_int_density )
+[1] 507692614
+> mean(secondset$Objects_detected)
+[1] 273.375
+> mean(secondset$Auto_threshold_sixteen)
+[1] 21984.21
+> 
+> mean(secondset$Auto_threshold_eight)
+[1] 91.22998
+> 
+> sd(secondset$Average_pixel_value)
+[1] 464.744
+> 
+> sd(secondset$Deviation)
+[1] 619.9844
+> 
+> sd(secondset$Skew)
+[1] 0.8004082
+> sd(secondset$Integrated_density)
+[1] 121829861
+> 
+> sd(secondset$	Kurtosis)
+[1] 9.641119
+> 
+> sd(secondset$	Area_fraction)
+[1] 4.13537
+> 
+> sd(secondset$	Raw_int_density )
+[1] 121829861
+> 
+> sd(secondset$Objects_detected)
+[1] 117.7388
+> 
+> sd(secondset$Auto_threshold_sixteen)
+[1] 1058.226
+> sd(secondset$Auto_threshold_eight)
+[1] 13.81036
+> 
+> mean(thirdset$Average_pixel_value )
+[1] 2544.349
+> mean(thirdset$Deviation )
+[1] 8933.361
+> mean(thirdset$Skew )
+[1] 5.072552
+> mean(thirdset$Integrated_density )
+[1] 927211013
+> mean(thirdset$Kurtosis )
+[1] 28.97924
+> 
+> mean(thirdset$Area_fraction )
+[1] 16.76666
+> > mean(thirdset$Raw_int_density  )
+Error: unexpected '>' in ">"
+> 
+> mean(thirdset$Raw_int_density  )
+[1] 927211013
+> 
+> mean(thirdset$Objects_detected  )
+[1] 365.6552
+> mean(thirdset$Auto_threshold_sixteen  )
+[1] 21242.38
+> 
+> mean(thirdset$Auto_threshold_eight  )
+[1] 88.63608
+> 
+> sd(thirdset$Average_pixel_value  )
+[1] 1096.708
+> 
+>  sd(thirdset$Deviation  )
+[1] 582.4658
+> 
+> sd(thirdset$Skew)
+[1] 0.7286097
+> 
+> sd(thirdset$Integrated_density)
+[1] 1652282515
+>  sd(thirdset$Kurtosis)
+[1] 6.2801
+> 
+> sd(thirdset$Area_fraction)
+[1] 4.137204
+> 
+>  sd(thirdset$Raw_int_density )
+[1] 1652282515
+> sd(thirdset$Objects_detected )
+[1] 650.2664
+> sd(thirdset$Auto_threshold_sixteen )
+[1] 2396.424
+> 
+> sd(thirdset$Auto_threshold_eight )
+[1] 21.21343
+> 
+> hist(thirdset$Auto_threshold_eight)
+> Average_pixel_value
+Error: object 'Average_pixel_value' not found
+> hist(firstset$Average_pixel_value)
+> 
+> hist(firstset$Deviation)
+> hist(firstset$Average_pixel_value)
+> hist(firstset$Deviation)\
+Error: unexpected input in "hist(firstset$Deviation)\"
+> hist(firstset$Deviation)
+> hist(firstset$Average_pixel_value)
+> 
+> hist(firstset$Deviation)
+> hist(firstset$Skew)
+>  hist(firstset$Integrated_density)
+> hist(firstset$Kurtosis)
+>  hist(firstset$Area_fraction)
+> hist(firstset$Raw_int_density )
+> hist(firstset$Objects_detected )
+> hist(firstset$Auto_threshold_sixteen )
+> hist(firstset$Auto_threshold_eight )
+> hist(secondset$Deviation)
+> > hist(secondset$Skew)
+Error: unexpected '>' in ">"
+> 
+>  hist(secondset$Deviation)
+>  hist(secondset$Skew)
+> hist(secondset $Average_pixel_value)
+> 
+> hist(secondset $Deviation)
+> 
+> hist(secondset $Skew)
+> hist(secondset $Integrated_density)
+> 
+> hist(secondset $Kurtosis)
+> hist(secondset $Area_fraction)
+>  hist(secondset $Raw_int_density)
+> 
+> hist(secondset $Objects_detected)
+> 
+>  hist(secondset $Auto_threshold_sixteen)
+> 
+> hist(firstset$Auto_threshold_eight )
+> 
+> hist(secondset $Auto_threshold_eight )
+> 
+> 
+> hist(thirdset $Average_pixel_value)
+> hist(thirdset $Deviation)
+> hist(thirdset $Skew)
+> > 
+Error: unexpected '>' in ">"
+>  hist(thirdset $Skew)
+> 
+> 
+> hist(thirdset $Integrated_density)
+> hist(thirdset $Kurtosis)
+> hist(thirdset $Area_fraction)
+> 
+> hist(thirdset $Raw_int_density)
+> 
+> hist(thirdset $Objects_detected)
+> 
+> hist(thirdset $Auto_threshold_sixteen)
+> 
+> hist(thirdset $Auto_threshold_eight)
+> 
+> View(thirdset $Auto_threshold_eight)
+Error in check_for_XQuartz() : 
+  X11 library is missing: install XQuartz from xquartz.macosforge.org
+> normalize(thirdset $Integrated_density, method = "standardize", range = c(0, 1), margin = 1L, on.constant = "quiet")
+Error in normalize(thirdset$Integrated_density, method = "standardize",  : 
+  could not find function "normalize"
+> library(BBmisc)
+Error in library(BBmisc) : there is no package called ‘BBmisc’
+> firstset_norm <- as.data.frame(apply(firstset[, 1:4], 2, function(x) (x - min(x))/(max(x)-min(x))))
+> firstset_norm$Average_pixel_value <- firstset$Average_pixel_value
+> str(firstset_norm)
+'data.frame':	27 obs. of  4 variables:
+ $ Average_pixel_value: num  711 1371 2218 621 1210 ...
+ $ Deviation          : num  0.1457 0.581 1 0.0842 0.3974 ...
+ $ Skew               : num  0.744 0.274 0 0.84 0.402 ...
+ $ Integrated_density : num  0.1117 0.5009 1 0.0591 0.4058 ...
+> summary(firstset_norm)
+ Average_pixel_value   Deviation           Skew        Integrated_density
+ Min.   : 521        Min.   :0.0000   Min.   :0.0000   Min.   :0.0000    
+ 1st Qu.:1038        1st Qu.:0.3606   1st Qu.:0.1763   1st Qu.:0.3044    
+ Median :1390        Median :0.5635   Median :0.2783   Median :0.5120    
+ Mean   :1395        Mean   :0.5182   Mean   :0.3485   Mean   :0.5152    
+ 3rd Qu.:1699        3rd Qu.:0.7028   3rd Qu.:0.4573   3rd Qu.:0.6943    
+ Max.   :2218        Max.   :1.0000   Max.   :1.0000   Max.   :1.0000    
+> hist(firstset_norm)
+Error in hist.default(firstset_norm) : 'x' must be numeric
+> hist(firstset_norm$Average_pixel_value)
+> firstset_norm <- as.data.frame(apply(firstset[, 1:4], 2, function(x) (x - min(x))/(max(x)-min(x))))
+> normalize(firstset, method = "standardize", range = c(0, 1), margin = 1L, on.constant = "quiet")
+Error in normalize(firstset, method = "standardize", range = c(0, 1),  : 
+  could not find function "normalize"
+2020-06-25 11:31:23.827 R[22525:28402591] [QL] Can't get plugin bundle info at file:///Users/tessforman/Library/Application%20Support/Autodesk/webdeploy/production/d70fc034bdeb523b5467a17508052a9fa72e449d/Autodesk%20Fusion%20360.app/Contents/Library/QuickLook/NQLGenerator.qlgenerator
+2020-06-28 23:44:28.477 R[22525:30629207] [QL] Can't get plugin bundle info at file:///Users/tessforman/Library/Application%20Support/Autodesk/webdeploy/production/d70fc034bdeb523b5467a17508052a9fa72e449d/Autodesk%20Fusion%20360.app/Contents/Library/QuickLook/NQLGenerator.qlgenerator
+2020-06-29 11:52:16.441 R[22525:31140727] [QL] Can't get plugin bundle info at file:///Users/tessforman/Library/Application%20Support/Autodesk/webdeploy/production/d70fc034bdeb523b5467a17508052a9fa72e449d/Autodesk%20Fusion%20360.app/Contents/Library/QuickLook/NQLGenerator.qlgenerator
+> 
