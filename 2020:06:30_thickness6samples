@@ -1,0 +1,134 @@
+> thickness_mean_std <- read_csv("/Users/tessforman/thickness_mean_std.csv")
+Parsed with column specification:
+cols(
+  thickone = col_double(),
+  stdone = col_double(),
+  thicktwo = col_double(),
+  stdtwo = col_double(),
+  thickthree = col_double(),
+  stdthree = col_double(),
+  thickfour = col_double(),
+  stdfour = col_double(),
+  thickfive = col_double(),
+  stdfive = col_double(),
+  thicksix = col_double(),
+  stdsix = col_double()
+)
+> shapiro.test(thickness_mean_std $thickone)
+
+	Shapiro-Wilk normality test
+
+data:  thickness_mean_std$thickone
+W = 0.34727, p-value = 2.384e-08
+
+> 
+> shapiro.test(thickness_mean_std $thicktwo)
+
+	Shapiro-Wilk normality test
+
+data:  thickness_mean_std$thicktwo
+W = 0.89131, p-value = 0.1225
+
+> shapiro.test(thickness_mean_std $thickthree)
+
+	Shapiro-Wilk normality test
+
+data:  thickness_mean_std$thickthree
+W = 0.8475, p-value = 0.01252
+
+> shapiro.test(thickness_mean_std $thickfour)
+
+	Shapiro-Wilk normality test
+
+data:  thickness_mean_std$thickfour
+W = 0.91604, p-value = 0.1676
+
+> shapiro.test(thickness_mean_std $thickfive)
+
+	Shapiro-Wilk normality test
+
+data:  thickness_mean_std$thickfive
+W = 0.87165, p-value = 0.04427
+
+> shapiro.test(thickness_mean_std $thicksix)
+
+	Shapiro-Wilk normality test
+
+data:  thickness_mean_std$thicksix
+W = 0.84947, p-value = 0.03616
+
+> shapiro.test(thickness_mean_std $stdone)
+
+	Shapiro-Wilk normality test
+
+data:  thickness_mean_std$stdone
+W = 0.35709, p-value = 3.098e-08
+
+> shapiro.test(thickness_mean_std $stdtwo)
+
+	Shapiro-Wilk normality test
+
+data:  thickness_mean_std$stdtwo
+W = 0.90213, p-value = 0.169
+
+> shapiro.test(thickness_mean_std $stdthree)
+
+	Shapiro-Wilk normality test
+
+data:  thickness_mean_std$stdthree
+W = 0.93295, p-value = 0.2714
+
+> shapiro.test(thickness_mean_std $stdfour)
+
+	Shapiro-Wilk normality test
+
+data:  thickness_mean_std$stdfour
+W = 0.36993, p-value = 3.711e-07
+
+> shapiro.test(thickness_mean_std $stdfive)
+
+	Shapiro-Wilk normality test
+
+data:  thickness_mean_std$stdfive
+W = 0.80508, p-value = 0.005771
+
+> shapiro.test(thickness_mean_std $stdsix)
+
+	Shapiro-Wilk normality test
+
+data:  thickness_mean_std$stdsix
+W = 0.92898, p-value = 0.3694
+
+> sd(thickness_mean_std $thickone)
+[1] NA
+> sd(thickness_mean_std $thicktwo)
+[1] NA
+> sd(thickness_mean_std $thickthree)
+[1] 0.09065673
+> sd(thickness_mean_std $thickfour)
+[1] NA
+> sd(thickness_mean_std $thickfive)
+[1] NA
+> sd(thickness_mean_std $thicksox)
+[1] NA
+Warning message:
+Unknown or uninitialised column: `thicksox`. 
+> sd(thickness_mean_std $thicksix)
+[1] NA
+> sd(thickness_mean_std $stdone)
+[1] NA
+> sd(thickness_mean_std $stdtwo)
+[1] NA
+> sd(thickness_mean_std $stdthree)
+[1] 39.60572
+> sd(thickness_mean_std $stdfour)
+[1] NA
+> sd(thickness_mean_std $stfive)
+[1] NA
+Warning message:
+Unknown or uninitialised column: `stfive`. 
+> sd(thickness_mean_std $stdfive)
+[1] NA
+> sd(thickness_mean_std $stdsix)
+[1] NA
+> 
