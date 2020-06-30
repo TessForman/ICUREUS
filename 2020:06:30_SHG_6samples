@@ -1,0 +1,667 @@
+
+> library(tidyverse)
+── Attaching packages ──────────────────────────────────── tidyverse 1.3.0 ──
+✔ ggplot2 3.3.2     ✔ purrr   0.3.4
+✔ tibble  3.0.1     ✔ dplyr   1.0.0
+✔ tidyr   1.1.0     ✔ stringr 1.4.0
+✔ readr   1.3.1     ✔ forcats 0.5.0
+── Conflicts ─────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+> sampleone <- read_csv("/Users/tessforman/sampleone.csv")
+Parsed with column specification:
+cols(
+  Average_pixel_value = col_double(),
+  Deviation = col_double(),
+  Skew = col_double(),
+  Integrated_density = col_double(),
+  Kurtosis = col_double(),
+  Area_fraction = col_double(),
+  Raw_int_density = col_double(),
+  Objects_detected = col_double()
+)
+> sampletwo <- read_csv("/Users/tessforman/sampletwo.csv")
+Parsed with column specification:
+cols(
+  Average_pixel_value = col_double(),
+  Deviation = col_double(),
+  Skew = col_double(),
+  Integrated_density = col_double(),
+  Kurtosis = col_double(),
+  Area_fraction = col_double(),
+  Raw_int_density = col_double(),
+  Objects_detected = col_double()
+)
+> samplethree <- read_csv("/Users/tessforman/samplethree.csv")
+Parsed with column specification:
+cols(
+  Average_pixel_value = col_double(),
+  Deviation = col_double(),
+  Skew = col_double(),
+  Integrated_density = col_double(),
+  Kurtosis = col_double(),
+  Area_fraction = col_double(),
+  Raw_int_density = col_double(),
+  Objects_detected = col_double()
+)
+> samplefour <- read_csv("/Users/tessforman/samplefour.csv")
+Parsed with column specification:
+cols(
+  Average_pixel_value = col_double(),
+  Deviation = col_double(),
+  Skew = col_double(),
+  Integrated_density = col_double(),
+  Kurtosis = col_double(),
+  Area_fraction = col_double(),
+  Raw_int_density = col_double(),
+  Objects_detected = col_double()
+)
+> samplefive <- read_csv("/Users/tessforman/sampleone.csv")
+Parsed with column specification:
+cols(
+  Average_pixel_value = col_double(),
+  Deviation = col_double(),
+  Skew = col_double(),
+  Integrated_density = col_double(),
+  Kurtosis = col_double(),
+  Area_fraction = col_double(),
+  Raw_int_density = col_double(),
+  Objects_detected = col_double()
+)
+> samplefive <- read_csv("/Users/tessforman/samplefive.csv")
+Parsed with column specification:
+cols(
+  Average_pixel_value = col_double(),
+  Deviation = col_double(),
+  Skew = col_double(),
+  Integrated_density = col_double(),
+  Kurtosis = col_double(),
+  Area_fraction = col_double(),
+  Raw_int_density = col_double(),
+  Objects_detected = col_double()
+)
+> samplesix <- read_csv("/Users/tessforman/samplesix.csv")
+Parsed with column specification:
+cols(
+  Average_pixel_value = col_double(),
+  Deviation = col_double(),
+  Skew = col_double(),
+  Integrated_density = col_double(),
+  Kurtosis = col_double(),
+  Area_fraction = col_double(),
+  Raw_int_density = col_double(),
+  Objects_detected = col_double()
+)
+> shapiro.test(seconddata$Average_pixel_value)
+
+	Shapiro-Wilk normality test
+
+data:  seconddata$Average_pixel_value
+W = 0.96237, p-value = 0.4177
+
+> shapiro.test(sampleone$Average_pixel_value)
+
+	Shapiro-Wilk normality test
+
+data:  sampleone$Average_pixel_value
+W = 0.92607, p-value = 0.3725
+
+> shapiro.test(sampletwo$Average_pixel_value)
+
+	Shapiro-Wilk normality test
+
+data:  sampletwo$Average_pixel_value
+W = 0.92181, p-value = 0.3013
+
+> shapiro.test(samplethree$Average_pixel_value)
+
+	Shapiro-Wilk normality test
+
+data:  samplethree$Average_pixel_value
+W = 0.93752, p-value = 0.3198
+
+> shapiro.test(samplefour$Average_pixel_value)
+
+	Shapiro-Wilk normality test
+
+data:  samplefour$Average_pixel_value
+W = 0.95581, p-value = 0.6201
+
+> shapiro.test(samplefive$Average_pixel_value)
+
+	Shapiro-Wilk normality test
+
+data:  samplefive$Average_pixel_value
+W = 0.41409, p-value = 1.349e-06
+
+> shapiro.test(samplesix$Average_pixel_value)
+
+	Shapiro-Wilk normality test
+
+data:  samplesix$Average_pixel_value
+W = 0.93523, p-value = 0.4388
+
+> shapiro.test(sampleone$Deviation)
+
+	Shapiro-Wilk normality test
+
+data:  sampleone$Deviation
+W = 0.9303, p-value = 0.4139
+
+> shapiro.test(sampletwo$Deviation)
+
+	Shapiro-Wilk normality test
+
+data:  sampletwo$Deviation
+W = 0.92882, p-value = 0.3678
+
+> shapiro.test(samplethree$Deviation)
+
+	Shapiro-Wilk normality test
+
+data:  samplethree$Deviation
+W = 0.97242, p-value = 0.8761
+
+> shapiro.test(samplefour$Deviation)
+
+	Shapiro-Wilk normality test
+
+data:  samplefour$Deviation
+W = 0.97191, p-value = 0.8852
+
+> shapiro.test(samplefive$Deviation)
+
+	Shapiro-Wilk normality test
+
+data:  samplefive$Deviation
+W = 0.77227, p-value = 0.002313
+
+> shapiro.test(samplesix$Deviation)
+
+	Shapiro-Wilk normality test
+
+data:  samplesix$Deviation
+W = 0.9513, p-value = 0.656
+
+> shapiro.test(sampleone$Skew)
+
+	Shapiro-Wilk normality test
+
+data:  sampleone$Skew
+W = 0.95749, p-value = 0.74
+
+> shapiro.test(sampletwo$Skew)
+
+	Shapiro-Wilk normality test
+
+data:  sampletwo$Skew
+W = 0.93039, p-value = 0.3843
+
+> shapiro.test(samplethree$Skew)
+
+	Shapiro-Wilk normality test
+
+data:  samplethree$Skew
+W = 0.94664, p-value = 0.4383
+
+> shapiro.test(samplefour$Skew)
+
+	Shapiro-Wilk normality test
+
+data:  samplefour$Skew
+W = 0.95946, p-value = 0.683
+
+> shapiro.test(samplefive$Skew)
+
+	Shapiro-Wilk normality test
+
+data:  samplefive$Skew
+W = 0.64259, p-value = 9.983e-05
+
+> shapiro.test(samplesix$Skew)
+
+	Shapiro-Wilk normality test
+
+data:  samplesix$Skew
+W = 0.90723, p-value = 0.1966
+
+> shapiro.test(sampleone$Integrated_density)
+
+	Shapiro-Wilk normality test
+
+data:  sampleone$Integrated_density
+W = 0.92607, p-value = 0.3725
+
+> shapiro.test(sampletwo$Integrated_density)
+
+	Shapiro-Wilk normality test
+
+data:  sampletwo$Integrated_density
+W = 0.92181, p-value = 0.3013
+
+> shapiro.test(samplethree$Integrated_density)
+
+	Shapiro-Wilk normality test
+
+data:  samplethree$Integrated_density
+W = 0.93752, p-value = 0.3198
+
+> shapiro.test(samplefour$Integrated_density)
+
+	Shapiro-Wilk normality test
+
+data:  samplefour$Integrated_density
+W = 0.34194, p-value = 2.378e-07
+
+> shapiro.test(samplefive$Integrated_density)
+
+	Shapiro-Wilk normality test
+
+data:  samplefive$Integrated_density
+W = 0.94925, p-value = 0.5491
+
+> shapiro.test(samplesix$Integrated_density)
+
+	Shapiro-Wilk normality test
+
+data:  samplesix$Integrated_density
+W = 0.93523, p-value = 0.4388
+
+> shapiro.test(sampleone$Kurtosis)
+
+	Shapiro-Wilk normality test
+
+data:  sampleone$Kurtosis
+W = 0.95067, p-value = 0.6525
+
+> 
+> shapiro.test(sampletwo$Kurtosis)
+
+	Shapiro-Wilk normality test
+
+data:  sampletwo$Kurtosis
+W = 0.92579, p-value = 0.3376
+
+> shapiro.test(samplethree$Kurtosis)
+
+	Shapiro-Wilk normality test
+
+data:  samplethree$Kurtosis
+W = 0.94378, p-value = 0.398
+
+> shapiro.test(samplefour$Kurtosis)
+
+	Shapiro-Wilk normality test
+
+data:  samplefour$Kurtosis
+W = 0.95379, p-value = 0.586
+
+> shapiro.test(samplefive$Kurtosis)
+
+	Shapiro-Wilk normality test
+
+data:  samplefive$Kurtosis
+W = 0.89971, p-value = 0.1117
+
+> shapiro.test(samplesix$Kurtosis)
+
+	Shapiro-Wilk normality test
+
+data:  samplesix$Kurtosis
+W = 0.90326, p-value = 0.1748
+
+> shapiro.test(sampleone$Area_fraction)
+
+	Shapiro-Wilk normality test
+
+data:  sampleone$Area_fraction
+W = 0.87486, p-value = 0.08947
+
+> shapiro.test(sampletwo$Area_fraction)
+
+	Shapiro-Wilk normality test
+
+data:  sampletwo$Area_fraction
+W = 0.93199, p-value = 0.4017
+
+> shapiro.test(samplethree$Area_fraction)
+
+	Shapiro-Wilk normality test
+
+data:  samplethree$Area_fraction
+W = 0.92368, p-value = 0.1933
+
+> shapiro.test(samplefour$Area_fraction)
+
+	Shapiro-Wilk normality test
+
+data:  samplefour$Area_fraction
+W = 0.97079, p-value = 0.8695
+
+> shapiro.test(samplefive$Area_fraction)
+
+	Shapiro-Wilk normality test
+
+data:  samplefive$Area_fraction
+W = 0.93792, p-value = 0.3923
+
+> shapiro.test(samplesix$Area_fraction)
+
+	Shapiro-Wilk normality test
+
+data:  samplesix$Area_fraction
+W = 0.92962, p-value = 0.3761
+
+> shapiro.test(sampleone$Raw_int_density)
+
+	Shapiro-Wilk normality test
+
+data:  sampleone$Raw_int_density
+W = 0.92607, p-value = 0.3725
+
+> shapiro.test(sampletwo$Raw_int_density)
+
+	Shapiro-Wilk normality test
+
+data:  sampletwo$Raw_int_density
+W = 0.92181, p-value = 0.3013
+
+> shapiro.test(samplethree$Raw_int_density)
+
+	Shapiro-Wilk normality test
+
+data:  samplethree$Raw_int_density
+W = 0.93752, p-value = 0.3198
+
+> shapiro.test(samplefour$Raw_int_density)
+
+	Shapiro-Wilk normality test
+
+data:  samplefour$Raw_int_density
+W = 0.34194, p-value = 2.378e-07
+
+> shapiro.test(samplefive$Raw_int_density)
+
+	Shapiro-Wilk normality test
+
+data:  samplefive$Raw_int_density
+W = 0.94925, p-value = 0.5491
+
+> shapiro.test(samplesix$Raw_int_density)
+
+	Shapiro-Wilk normality test
+
+data:  samplesix$Raw_int_density
+W = 0.93523, p-value = 0.4388
+
+> shapiro.test(sampleone$Objects_detected)
+
+	Shapiro-Wilk normality test
+
+data:  sampleone$Objects_detected
+W = 0.94328, p-value = 0.5597
+
+> shapiro.test(sampletwo$Objects_detected)
+
+	Shapiro-Wilk normality test
+
+data:  sampletwo$Objects_detected
+W = 0.87256, p-value = 0.07043
+
+> shapiro.test(samplethree$Objects_detected)
+
+	Shapiro-Wilk normality test
+
+data:  samplethree$Objects_detected
+W = 0.94222, p-value = 0.3772
+
+> shapiro.test(samplefour$Objects_detected)
+
+	Shapiro-Wilk normality test
+
+data:  samplefour$Objects_detected
+W = 0.38294, p-value = 4.584e-07
+
+> shapiro.test(samplefive$Objects_detected)
+
+	Shapiro-Wilk normality test
+
+data:  samplefive$Objects_detected
+W = 0.86669, p-value = 0.03771
+
+> shapiro.test(samplesix$Objects_detected)
+
+	Shapiro-Wilk normality test
+
+data:  samplesix$Objects_detected
+W = 0.89863, p-value = 0.1523
+
+> mean(samplesix$Objects_detected)
+[1] 236.25
+> mean(samplesix$Average_pixel_value)
+[1] 1734.425
+> mean(samplefive$Average_pixel_value)
+[1] 2756.948
+> mean(samplefour$Average_pixel_value)
+[1] 2345.923
+> mean(samplethree$Average_pixel_value)
+[1] 1555.838
+> mean(sampletwo$Average_pixel_value)
+[1] 2138.962
+> mean(sampleone$Average_pixel_value)
+[1] 1161.665
+> mean(sampleone$Deviation)
+[1] 7096.241
+> 
+> mean(sampletwo$Deviation)
+[1] 8661.062
+> mean(samplethree$Deviation)
+[1] 7845.758
+> mean(samplefour$Deviation)
+[1] 8861.36
+> mean(samplefive$Deviation)
+[1] 9010.504
+> mean(sampleone$Deviation)
+[1] 7096.241
+> mean(samplesix$Deviation)
+[1] 8167.378
+> mean(sampleone$Skew)
+[1] 8.067727
+> 
+> m
+> 
+> mean(sampletwo$Skew)
+[1] 5.44825
+> 
+> mean(samplethree$Skew)
+[1] 6.568313
+> mean(samplefour$Skew)
+[1] 5.2144
+> mean(samplefive$Skew)
+[1] 4.920571
+> mean(samplesix$Skew)
+[1] 6.1295
+> mean(sampleone$Integrated_density)
+[1] 304523537
+> mean(sampletwo$Integrated_density)
+[1] 560716134
+> mean(samplethree$Integrated_density)
+[1] 407853605
+> mean(samplefour$Integrated_density)
+[1] 1208651308
+> mean(samplefive$Integrated_density)
+[1] 625667839
+> mean(samplesix$Integrated_density)
+[1] 454669093
+> mean(sampleone$Kurtosis)
+[1] 70.02945
+> mean(sampletwo$Kurtosis)
+[1] 32.33233
+> mean(samplethree$Kurtosis)
+[1] 46.31094
+> mean(samplefour$Kurtosis)
+[1] 29.87627
+> mean(samplefive$Kurtosis)
+[1] 28.01814
+> mean(samplesix$Kurtosis)
+[1] 40.31342
+> mean(sampleone$Area_fraction)
+[1] 5.623091
+> mean(sampletwo$Area_fraction)
+[1] 13.70725
+> mean(samplethree$Area_fraction)
+[1] 9.074687
+> mean(samplefour$Area_fraction)
+[1] 16.42373
+> mean(samplefive$Area_fraction)
+[1] 17.13407
+> mean(samplesix$Area_fraction)
+[1] 10.15317
+> mean(sampleone$Raw_int_density )
+[1] 304523537
+> mean(sampletwo$Raw_int_density )
+[1] 560716134
+> mean(samplethree$Raw_int_density )
+[1] 407853605
+> mean(samplefour$Raw_int_density )
+[1] 1208651308
+> mean(samplefive$Raw_int_density )
+[1] 625667839
+> mean(samplesix$Raw_int_density )
+[1] 454669093
+> mean(sampleone$Objects_detected )
+[1] 134.6364
+> mean(sampletwo$Objects_detected )
+[1] 310.5
+> mean(samplethree$Objects_detected )
+[1] 132.5
+> mean(samplefour$Objects_detected )
+[1] 468.4
+> mean(samplefive$Objects_detected )
+[1] 255.5714
+> mean(samplesix$Objects_detected )
+[1] 236.25
+> > mean(sampleone$Objects_detected )
+Error: unexpected '>' in ">"
+> [1] 134.6364
+Error: unexpected '[' in "["
+> > mean(sampletwo$Objects_detected )
+Error: unexpected '>' in ">"
+> [1] 310.5
+Error: unexpected '[' in "["
+> > mean(samplethree$Objects_detected )
+Error: unexpected '>' in ">"
+> [1] 132.5
+Error: unexpected '[' in "["
+> > mean(samplefour$Objects_detected )
+Error: unexpected '>' in ">"
+> [1] 468.4
+Error: unexpected '[' in "["
+> > mean(samplefive$Objects_detected )
+Error: unexpected '>' in ">"
+> [1] 255.5714
+Error: unexpected '[' in "["
+> > mean(samplesix$Objects_detected )
+Error: unexpected '>' in ">"
+> sd(sampleone$Average_pixel_value)
+[1] 543.5402
+> sd(sampletwo$Average_pixel_value)
+[1] 482.8098
+> sd(samplethree$Average_pixel_value)
+[1] 424.3934
+> sd(samplefour$Average_pixel_value)
+[1] 566.3593
+> sd(samplefive$Average_pixel_value)
+[1] 1466.641
+> sd(samplesix$Average_pixel_value)
+[1] 359.4995
+> sd(sampleone$Deviation)
+[1] 1043.147
+> sd(sampletwo$Deviation)
+[1] 593.1856
+> sd(samplethree$Deviation)
+[1] 609.2907
+> sd(samplefour$Deviation)
+[1] 671.3855
+> sd(samplefive$Deviation)
+[1] 482.6023
+> sd(samplesix$Deviation)
+[1] 564.7084
+> sd(sampleone$Skew)
+[1] 1.916735
+> sd(sampletwo$Skew)
+[1] 0.7206959
+> sd(samplethree$Skew)
+[1] 0.9785456
+> sd(samplefour$Skew)
+[1] 0.7603569
+> sd(samplefive$Skew)
+[1] 0.6875395
+> sd(samplesix$Skew)
+[1] 0.7529934
+> sd(sampleone$Integrated_density)
+[1] 142485778
+> sd(sampletwo$Integrated_density)
+[1] 126565699
+> sd(samplethree$Integrated_density)
+[1] 111252198
+> sd(samplefour$Integrated_density)
+[1] 2298223285
+> sd(samplefive$Integrated_density)
+[1] 51366687
+> sd(samplesix$Integrated_density)
+[1] 94240676
+> sd(sampleone$Kurtosis)
+[1] 29.99777
+> sd(sampletwo$Kurtosis)
+[1] 8.160827
+> sd(samplethree$Kurtosis)
+[1] 12.95544
+> sd(samplefour$Kurtosis)
+[1] 8.342003
+> sd(samplefive$Kurtosis)
+[1] 2.842836
+> sd(samplesix$Kurtosis)
+[1] 9.644126
+> sd(sampleone$Area_fraction)
+[1] 4.230173
+> sd(sampletwo$Area_fraction)
+[1] 4.382419
+> sd(samplethree$Area_fraction)
+[1] 4.632525
+> sd(samplefour$Area_fraction)
+[1] 5.473619
+> sd(samplefive$Area_fraction)
+[1] 2.078458
+> sd(samplesix$Area_fraction)
+[1] 3.108332
+> sd(sampleone$Raw_int_density)\
+Error: unexpected input in "sd(sampleone$Raw_int_density)\"
+> sd(sampleone$Raw_int_density)
+[1] 142485778
+> sd(sampletwo$Raw_int_density)
+[1] 126565699
+> sd(samplethree$Raw_int_density)
+[1] 111252198
+> sd(samplefour$Raw_int_density)
+[1] 2298223285
+> sd(samplefive$Raw_int_density)
+[1] 51366687
+> sd(samplesix$Raw_int_density)
+[1] 94240676
+> sd(sampleone$Raw_int_density)
+[1] 142485778
+> sd(sampleone$Objects_detected)
+[1] 76.27617
+> sd(sampletwo$Objects_detected)
+[1] 102.3386
+> sd(samplethree$Objects_detected)
+[1] 75.68003
+> sd(samplefour$Objects_detected)
+[1] 901.8284
+> sd(samplefive$Objects_detected)
+[1] 98.28116
+> sd(samplesix$Objects_detected)
+[1] 124.5181
+> 901.8284
+[1] 901.8284
