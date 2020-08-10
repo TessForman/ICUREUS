@@ -1,0 +1,26 @@
+> library(tidyverse)
+── Attaching packages ──────────────────────────────────────────────────── tidyverse 1.3.0 ──
+✔ ggplot2 3.3.2     ✔ purrr   0.3.4
+✔ tibble  3.0.1     ✔ dplyr   1.0.0
+✔ tidyr   1.1.0     ✔ stringr 1.4.0
+✔ readr   1.3.1     ✔ forcats 0.5.0
+── Conflicts ─────────────────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+
+##inputting the data
+> cells_noTGFB <- read_csv("/Users/tessforman/SHG_Objects_detected_noTGFB.csv")
+Parsed with column specification:
+cols(
+  Proportion = col_character(),
+  Thickness = col_double(),
+  SEM = col_double()
+)
+
+##data for graph
+> graph <- ggplot(data = cells_noTGFB)
+
+> graph + geom_point(mapping = aes(x = Proportion, y = `Number of cells`))  ##defines x and y
++ geom_errorbar(aes(x=Proportion, ymin= `Number of cells`-SEM, ymax= `Number of cells`+SEM), width=.2)  ##adds error bars
++ coord_cartesian(ylim = c(0, 1250)) ##scales the y axis
+
