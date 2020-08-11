@@ -23,4 +23,5 @@ cols(
 > graph + geom_point(mapping = aes(x = Proportion, y = `Number of cells`))  ##defines x and y
 + geom_errorbar(aes(x=Proportion, ymin= `Number of cells`-SEM, ymax= `Number of cells`+SEM), width=.2)  ##adds error bars
 + coord_cartesian(ylim = c(0, 1250)) ##scales the y axis
++ labs(title = "Average number of cells for \nnontreated bioinks", caption = "* P < 0.05 \n** P < 0.01 \n   *** P < 0.001") ##adds title and caption
 
