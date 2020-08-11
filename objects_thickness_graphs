@@ -8,8 +8,10 @@
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
 
+##FOR OBJECTS DETECTED
+
 ##inputting the data
-> cells_noTGFB <- read_csv("/Users/tessforman/SHG_Objects_detected_noTGFB.csv")
+> fibers_noTGFB <- read_csv("/Users/tessforman/SHG_Objects_detected_noTGFB.csv")
 Parsed with column specification:
 cols(
   Proportion = col_character(),
@@ -18,10 +20,24 @@ cols(
 )
 
 ##data for graph
-> graph <- ggplot(data = cells_noTGFB)
+> graph <- ggplot(data = fibers_noTGFB)
 
-> graph + geom_point(mapping = aes(x = Proportion, y = `Number of cells`))  ##defines x and y
-+ geom_errorbar(aes(x=Proportion, ymin= `Number of cells`-SEM, ymax= `Number of cells`+SEM), width=.2)  ##adds error bars
+> graph + geom_point(mapping = aes(x = Proportion, y = `Number of fibers`))  ##defines x and y
++ geom_errorbar(aes(x=Proportion, ymin= `Number of fibers`-SEM, ymax= `Number of fibers`+SEM), width=.2)  ##adds error bars
 + coord_cartesian(ylim = c(0, 1250)) ##scales the y axis
-+ labs(title = "Average number of cells for \nnontreated bioinks", caption = "* P < 0.05 \n** P < 0.01 \n   *** P < 0.001") ##adds title and caption
++ labs(title = "Average number of collagen \nfibers for nontreated bioinks", caption = "* P < 0.05 \n** P < 0.01 \n   *** P < 0.001") ##adds title and caption
 
+
+##FOR THICKNESS
+> fibers_TGFB <- read_csv("/Users/tessforman/SHG_Objects_detected_TGFB.csv")
+Parsed with column specification:
+cols(
+  Proportion = col_character(),
+  `Number of fibers` = col_double(),
+  SEM = col_double()
+)
+> graph <- ggplot(data = fibers_TGFB)
+> graph + geom_point(mapping = aes(x = Proportion, y = `Thickness (microns)`)) 
++ geom_errorbar(aes(x=Proportion, ymin= `Thickness (microns)`-SEM, ymax= `Thickness (microns)` +SEM), width=.2) 
++ coord_cartesian(ylim = c(0, 0.25)) 
++ labs(title = "Average collagen fiber \nthickness for nontreated bioinks", caption = "* P < 0.05 \n** P < 0.01 \n   *** P < 0.001")
