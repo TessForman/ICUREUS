@@ -1,4 +1,5 @@
 > library(tidyverse)
+> library(ggplot2)
 
 ##Number of cells graph
 > cells <- read_csv("/Users/tessforman/TPEF_Objects_detected.csv")
