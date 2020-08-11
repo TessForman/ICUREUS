@@ -1,0 +1,29 @@
+> library(tidyverse)
+
+##Number of cells graph
+> cells <- read_csv("/Users/tessforman/TPEF_Objects_detected.csv")
+Parsed with column specification:
+cols(
+  Proportion = col_character(),
+  `Average number of cells` = col_double(),
+  SEM = col_double(),
+  Sample = col_double()
+)
+> graph <- ggplot(data = cells)
+> graph + geom_point(mapping = aes(x = Proportion, y = `Average number of cells`)) 
++ geom_errorbar(aes(x=Proportion, ymin= `Average number of cells`-SEM, ymax= `Average number of cells` +SEM), width=.2)  
++ labs(title = "Average number of cells \nfor different bioinks", caption = "* P < 0.05 \n** P < 0.01 \n   *** P < 0.001")
+##graph name: "Cells_graph.pdf"
+
+
+##avg distance graph
+> dist <- read_csv("/Users/tessforman/TPEF_avg_distance.csv")
+Parsed with column specification:
+cols(
+  Proportion = col_character(),
+  `Average distance between cells (microns)` = col_double(),
+  SEM = col_double(),
+  Sample = col_double()
+)
+> graph <- ggplot(data = cells)
+##graph name: "dist_graph.pdf"
