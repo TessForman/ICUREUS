@@ -1,0 +1,14 @@
+avg <- read_csv("/Users/tessforman/SHG_Average_pixel_value_notconverted.csv")
+Parsed with column specification:
+cols(
+  Proportion = col_character(),
+  `Image intensity mean` = col_double(),
+  SEM = col_double(),
+  Sample = col_double(),
+  TGFB = col_character()
+
+> graph <- ggplot(data = avg) 
+
+> graph + geom_point(mapping = aes(x = Proportion, y = `Image intensity mean`, color=TGFB)) 
++ geom_errorbar(aes(x=Proportion, ymin=`Image intensity mean`-SEM, ymax=`Image intensity mean`+SEM), width=.2) 
++ labs(title = "Image intensity mean for \ntreated and nontreated bioinks", caption = "* P < 0.05 \n** P < 0.01 \n   *** P < 0.001")
