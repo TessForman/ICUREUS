@@ -14,6 +14,7 @@ cols(
 > graph + geom_point(mapping = aes(x = Proportion, y = `SHG intensity (a.u.)`)) 
 + geom_errorbar(aes(x=Proportion, ymin=`SHG intensity (a.u.)`-SEM, ymax=`SHG intensity (a.u.)`+SEM), width=.2)
 + labs(title = "Average SHG intensity for \ndifferent bioinks")
++ coord_cartesian(ylim = c(1250, 2500))
 
 ##TREATED AND NON-TREATED SAMPLES
 avg <- read_csv("/Users/tessforman/SHG_Average_pixel_value_notconverted.csv")
@@ -27,6 +28,7 @@ cols(
 
 > graph <- ggplot(data = avg) 
 
-> graph + geom_point(mapping = aes(x = Proportion, y = `Image intensity mean`, color=TGFB)) 
+graph + geom_point(mapping = aes(x = Proportion, y = `Image intensity mean`, color=TGFB)) 
 + geom_errorbar(aes(x=Proportion, ymin=`Image intensity mean`-SEM, ymax=`Image intensity mean`+SEM), width=.2) 
-+ labs(title = "Image intensity mean for \ntreated and nontreated bioinks", caption = "* P < 0.05 \n** P < 0.01 \n   *** P < 0.001")
++ labs(title = "Image intensity mean for \ntreated and nontreated bioinks", y= "SHG intensity (a.u.)") 
++ coord_cartesian(ylim = c(1350, 2500))
