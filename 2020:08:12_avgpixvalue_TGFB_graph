@@ -1,3 +1,21 @@
+##ONLY NON-TREATED SAMPLES
+> library(tidyverse)
+> library(ggplot2)
+
+> avg_noTGFB <- read_csv("/Users/tessforman/SHG_Average_pixel_value_notconverted_noTGFB.csv")
+Parsed with column specification:
+cols(
+  Proportion = col_character(),
+  `SHG intensity (a.u.)` = col_double(),
+  SEM = col_double(),
+  Sample = col_double()
+)
+> graph <- ggplot(data = avg_noTGFB) 
+> graph + geom_point(mapping = aes(x = Proportion, y = `SHG intensity (a.u.)`)) 
++ geom_errorbar(aes(x=Proportion, ymin=`SHG intensity (a.u.)`-SEM, ymax=`SHG intensity (a.u.)`+SEM), width=.2)
++ labs(title = "Average SHG intensity for \ndifferent bioinks")
+
+##TREATED AND NON-TREATED SAMPLES
 avg <- read_csv("/Users/tessforman/SHG_Average_pixel_value_notconverted.csv")
 Parsed with column specification:
 cols(
