@@ -12,33 +12,35 @@
 ##FOR OBJECTS DETECTED
 
 ##inputting the data
-> fibers_noTGFB <- read_csv("/Users/tessforman/SHG_Objects_detected_noTGFB.csv")
+> fibers <- read_csv("/Users/tessforman/SHG_Objects_detected.csv")
 Parsed with column specification:
 cols(
   Proportion = col_character(),
-  Thickness = col_double(),
-  SEM = col_double()
+  `Number of fibers` = col_double(),
+  SEM = col_double(),
+  TGFB = col_character()
 )
 
 ##data for graph
 > graph <- ggplot(data = fibers_noTGFB)
 
-> graph + geom_point(mapping = aes(x = Proportion, y = `Number of fibers`))  ##defines x and y
-+ geom_errorbar(aes(x=Proportion, ymin= `Number of fibers`-SEM, ymax= `Number of fibers`+SEM), width=.2)  ##adds error bars
-+ coord_cartesian(ylim = c(0, 1250)) ##scales the y axis
-+ labs(title = "Average number of collagen \nfibers for nontreated bioinks", caption = "* P < 0.05 \n** P < 0.01 \n   *** P < 0.001") ##adds title and caption
+> graph + geom_point(mapping = aes(x = Proportion, y = `Number of fibers`,color=TGFB)) 
++ geom_errorbar(aes(x=Proportion, ymin= `Number of fibers`-SEM, ymax= `Number of fibers`+SEM), width=.2) 
++ coord_cartesian(ylim = c(0, 1250)) 
++ labs(title = "Average number of collagen \nfibers for different bioinks") 
 
 
 ##FOR THICKNESS
-> fibers_TGFB <- read_csv("/Users/tessforman/SHG_Objects_detected_TGFB.csv")
+> thickness <- read_csv("/Users/tessforman/SHG_Thickness_mean_converted.csv")
 Parsed with column specification:
 cols(
   Proportion = col_character(),
-  `Number of fibers` = col_double(),
-  SEM = col_double()
+  `Thickness (microns)` = col_double(),
+  SEM = col_double(),
+  TGFB = col_character()
 )
-> graph <- ggplot(data = fibers_TGFB)
-> graph + geom_point(mapping = aes(x = Proportion, y = `Thickness (microns)`)) 
+> graph <- ggplot(data = thickness)
+> graph + geom_point(mapping = aes(x = Proportion, y = `Thickness (microns)`,color=TGFB)) 
 + geom_errorbar(aes(x=Proportion, ymin= `Thickness (microns)`-SEM, ymax= `Thickness (microns)` +SEM), width=.2) 
 + coord_cartesian(ylim = c(0, 0.25)) 
-+ labs(title = "Average collagen fiber \nthickness for nontreated bioinks", caption = "* P < 0.05 \n** P < 0.01 \n   *** P < 0.001")
++ labs(title = "Average collagen fiber \nthickness for different bioinks")
